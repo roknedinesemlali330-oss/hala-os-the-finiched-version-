@@ -1,0 +1,7 @@
+# greetd: the login manager. It starts our graphical greeter.
+[terminal]
+vt = 7
+
+[default_session]
+command = "sh /etc/myos/greetd-start.sh"
+user = "_greetd"

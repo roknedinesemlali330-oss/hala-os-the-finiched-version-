@@ -1,0 +1,7 @@
+PRETTY_NAME="Hala OS"
+NAME="Hala OS"
+VERSION_ID="0.3"
+VERSION="0.3 (alpha)"
+ID=hala
+ID_LIKE=debian
+LOGO=hala

@@ -1,0 +1,14 @@
+#!/bin/sh
+
+lb config noauto \
+  --distribution trixie \
+  --architectures amd64 \
+  --archive-areas "main contrib non-free-firmware" \
+  --binary-images iso-hybrid \
+  --debian-installer none \
+  --apt-options "--yes -t trixie-backports" \
+  --image-name hala \
+  --iso-application "Hala OS" \
+  --iso-volume "HALA_OS" \
+  --bootappend-live "boot=live components quiet splash loglevel=3 vt.global_cursor_default=0 locales=en_US.UTF-8 keyboard-layouts=us,ara hostname=hala" \
+  "${@}"

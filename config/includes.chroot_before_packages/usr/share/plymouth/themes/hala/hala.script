@@ -1,0 +1,36 @@
+# Hala OS boot screen: logo in the middle and five dots spinning under it.
+
+Window.SetBackgroundTopColor(0.055, 0.075, 0.125);
+Window.SetBackgroundBottomColor(0.055, 0.075, 0.125);
+
+screen_w = Window.GetWidth();
+screen_h = Window.GetHeight();
+
+logo.image = Image("logo.png");
+logo.sprite = Sprite(logo.image);
+logo.sprite.SetX(screen_w / 2 - logo.image.GetWidth() / 2);
+logo.sprite.SetY(screen_h / 2 - logo.image.GetHeight() / 2 - 40);
+
+dot.image = Image("dot.png");
+spin_x = screen_w / 2;
+spin_y = screen_h / 2 + logo.image.GetHeight() / 2 + 10;
+
+for (i = 0; i < 5; i++) {
+    dots[i].sprite = Sprite(dot.image);
+    dots[i].sprite.SetZ(10);
+}
+
+state.t = 0;
+
+fun refresh() {
+    state.t = state.t + 1;
+    base_angle = state.t * 0.09;
+    for (i = 0; i < 5; i++) {
+        a = base_angle - i * 0.45;
+        dots[i].sprite.SetX(spin_x + 18 * Math.Cos(a) - dot.image.GetWidth() / 2);
+        dots[i].sprite.SetY(spin_y + 18 * Math.Sin(a) - dot.image.GetHeight() / 2);
+        dots[i].sprite.SetOpacity(1 - i * 0.18);
+    }
+}
+
+Plymouth.SetRefreshFunction(refresh);
