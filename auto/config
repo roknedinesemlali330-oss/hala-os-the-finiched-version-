@@ -6,7 +6,7 @@ lb config noauto \
   --archive-areas "main contrib non-free-firmware" \
   --binary-images iso-hybrid \
   --debian-installer none \
-  --apt-options "--yes -t trixie-backports" \
+  --apt-options "--yes" \
   --image-name hala \
   --iso-application "Hala OS" \
   --iso-volume "HALA_OS" \
